@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		Welcome ${user.userName} !<br> <a
+			href="InstructorController?action=addCourse">Add Course</a><br>
+		<hr>
+
+		<c:forEach var="imap" items="${courseList}">
+			<a
+				href="InstructorController?action=courseMenu&courseName=${imap.getCourseName()}">${imap.getCourseName()}<br></a>
+		</c:forEach>
+
+		<br>
+		<br>
+		<hr>
+		<br>
+		<a href="InstructorController?action=logout">LogOut</a>
+
+	</center>
+
+</body>
+</html>
